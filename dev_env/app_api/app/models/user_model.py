@@ -24,6 +24,11 @@ class UserModel(Base):
                                                 lazy="joined"),
                                 lazy="joined")
 
+    comment_list: list = relationship('CommentModel',
+                                      backref=backref("user_comment",
+                                                      lazy="joined"),
+                                      lazy="joined")
+
     def verify_password(self, password):
         return bcrypt.verify(password, self.password_hash)
 
