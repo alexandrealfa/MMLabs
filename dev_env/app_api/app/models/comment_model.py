@@ -4,6 +4,7 @@ from app.configurations.database import Base
 
 
 class CommentModel(Base):
+    __tablename__ = "comments"
     id: int = Column(Integer, primary_key=True)
     comment: str = Column(String)
     user_receiver_id: str = Column(Integer)

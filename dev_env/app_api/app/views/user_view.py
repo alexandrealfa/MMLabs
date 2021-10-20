@@ -67,7 +67,6 @@ async def create_user(user: UserPersonCreateSchema, db: Session = Depends(get_db
                                 )
 
     if new_user := create_user_service(db, new_user):
-        print(new_user)
         return new_user
 
     raise HTTPException(

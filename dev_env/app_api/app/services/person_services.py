@@ -29,10 +29,16 @@ def create_new_person_service(db: Session, new_person: PersonCreateSchema) -> Pe
         return db_new_person
 
     except IntegrityError:
-        pass
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Não foi possível Criar o Perfil. Verifique se os dados foram preenchidos corretamente."
+        )
 
     except ProgrammingError:
-        pass
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Não foi possível Criar o Perfil. Verifique se os dados foram preenchidos corretamente."
+        )
 
     except PendingRollbackError:
         raise HTTPException(
@@ -78,7 +84,7 @@ def update_person_service(db: Session, person_id: int, data_update: PersonUpdate
     try:
         if person := get_person_service(db, person_id):
             update_values = {
-                key: value for key, value in data_update.dict() if value
+                key: value for key, value in data_update if value
             }
             db.query(PersonModel)\
                 .filter(PersonModel.id == person_id)\
@@ -113,7 +119,7 @@ def delete_person_service(db: Session, person_id: int):
     """
 
     if person := get_person_service(db, person_id):
-        db.query(PersonModel).delete(person)
+        db.query(PersonModel).filter(PersonModel.id == person.id).delete()
         db.commit()
 
         return True

@@ -5,6 +5,7 @@ from app.configurations.database import Base
 
 
 class ProfileModel(Base):
+    __tablename__ = "profile"
     id: int = Column(Integer, primary_key=True)
     profile_url: str = Column(String)
     banner_profile_url: str = Column(String)

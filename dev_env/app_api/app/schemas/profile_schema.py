@@ -6,7 +6,6 @@ from app.schemas.base_schema import BaseMD
 
 
 class ProfileCreateSchema(BaseMD):
-    id: int
     profile_url: str
     banner_profile_url: str
     bio: str

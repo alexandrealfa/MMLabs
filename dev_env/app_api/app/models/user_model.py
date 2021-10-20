@@ -1,4 +1,5 @@
 from app.configurations.database import Base
+from app.models.comment_model import CommentModel
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import backref, relationship
 from passlib.hash import bcrypt

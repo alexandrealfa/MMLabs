@@ -19,7 +19,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl='token')
 
 def create_user_service(db: Session, new_user: UserCreateSchema) -> UserSchema:
     """
-
+    This service create one new user in database
     :param db:
     :param new_user:
     :return:
@@ -37,10 +37,16 @@ def create_user_service(db: Session, new_user: UserCreateSchema) -> UserSchema:
         return db_user
 
     except IntegrityError:
-        pass
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Não foi possível Criar o usuário. Verifique se os dados foram preenchidos corretamente."
+        )
 
     except ProgrammingError:
-        pass
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Não foi possível Criar o usuário, verifique se os dados foram preenchidos corretamente."
+        )
 
     except DataError:
 
@@ -124,10 +130,16 @@ def update_user_service(db: Session, user_id: int, new_user: UserUpdateSchema):
             return current_user
 
     except IntegrityError:
-        pass
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Não foi possível Criar o usuário. Verifique se os dados foram preenchidos corretamente."
+        )
 
     except ProgrammingError:
-        pass
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Não foi possível Criar o usuário. Verifique se os dados foram preenchidos corretamente."
+        )
 
     except DataError:
 
