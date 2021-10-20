@@ -29,7 +29,15 @@ router_profile = APIRouter(
 
 
 @router_profile.get("/", response_model=ProfileSchema)
-def list_patients(db: Session = Depends(get_db)):
+def list_patients(db: Session = Depends(get_db),
+                  user: UserModel = Depends(get_current_user)):
+
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Usuário não está autenticado"
+        )
+
     profile_list = parse_obj_as(List[ProfileSchema], get_all_profiles_service(db))
     return JSONResponse(jsonable_encoder(profile_list))
 
