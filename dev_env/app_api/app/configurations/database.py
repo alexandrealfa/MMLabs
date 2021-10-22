@@ -15,4 +15,4 @@ def create_database(param: str):
     return current_session, current_base, current_engine
 
 
-SessionLocal, Base, engine = create_database("default")
+SessionLocal, Base, engine = create_database("development")

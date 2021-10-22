@@ -3,22 +3,22 @@ DEBUG = true
 SERVER = "uvicorn"
 PORT = 6666
 MESSAGE = "Dynaconf works like a charm with fastapi and TOML"
-DB_URI_DEV = "postgresql://alexandre:123456@localhost:5432/mmlab"
+DB_URI_DEV = "postgresql://username:password:5432/mmlab"
 
 [development]
 DEBUG = true
 SERVER = "uvicorn"
 SECRET_KEY="vlakjv4wlnvçck2"
-DB_URI_DEV = "postgresql://developer:123456@db:5432/mmlab"
+DB_URI_DEV = "postgresql://alexandre:123456@localhost:5432/mmlab"
 
 [production]
 DEBUG = false
 SERVER = "uvicorn"
 SECRET_KEY="vlakjv4wlnvçck2"
-DB_URI_DEV = "postgresql://developer:123456@db:5432/mmlab"
+DB_URI_DEV = "postgresql://username:password@db:5432/mmlab"
 
 [testing]
 DEBUG = true
 SERVER = "uvicorn"
 SECRET_KEY="vlakjv4wlnvçck2"
-DB_URI_DEV = "postgresql://developer:123456@db:5432/mmlab"
+DB_URI_DEV = "postgresql://username:password@db:5432/mmlab"
