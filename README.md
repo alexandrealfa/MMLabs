@@ -37,6 +37,8 @@ sistema de registro de funcionários.
   ```
 - 5. Perfeito, com tudo configurado e rodando basta acessar a url -> **http://localhost:3000/**
 
+- 6. Com a Aplicação FrontEnd rodando, é necessário realizar um cadastro em signup, e posteriormente fazer login na rota signin, pois é necessário estar autenticado para ver os usuários cadastrados na aplicação.
+
 # 🏗 Ferramentas do Projeto :
 
 ### BackEnd:
