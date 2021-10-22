@@ -27,7 +27,7 @@ sistema de registro de funcionários.
   -> uvicorn app:create_app --reload --factory
 ```
 
-    - Com a api configurada, e rodando, basta acessar a url -> **http://127.0.0.1:8000/docs**, e você conseguira ter acesso a documentação da Api :).
+- Com a api configurada, e rodando, basta acessar a url -> **http://127.0.0.1:8000/docs**, e você conseguira ter acesso a documentação da Api :).
 
 - 4. Hora de configurar o nosso frontend:
   - Vá até a pasta app_webpage (**dev_env/app_webpage**), e execute os seguintes commandos no terminal :
