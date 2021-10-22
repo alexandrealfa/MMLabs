@@ -9,7 +9,7 @@ DB_URI_DEV = "postgresql://username:password:5432/mmlab"
 DEBUG = true
 SERVER = "uvicorn"
 SECRET_KEY="vlakjv4wlnvçck2"
-DB_URI_DEV = "postgresql://alexandre:123456@localhost:5432/mmlab"
+DB_URI_DEV = "postgresql://username:password@db:5432/mmlab"
 
 [production]
 DEBUG = false
